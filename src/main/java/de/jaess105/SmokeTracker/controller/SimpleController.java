@@ -43,7 +43,7 @@ public class SimpleController {
   @GetMapping("/download-csv")
   public ResponseEntity<InputStreamResource> downloadCSV()
       throws IOException {
-    InputStreamResource resource = exportService.getInputStreamResource();
+    InputStreamResource resource = exportService.smokeEntrysToCSVasISR();
     return ResponseEntity.ok()
         .header(HttpHeaders.CONTENT_DISPOSITION, "attachment;filename=Smoke_Entry.csv")
         .contentType(MediaType.parseMediaType("text/csv"))

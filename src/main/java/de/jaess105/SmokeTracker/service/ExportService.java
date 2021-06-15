@@ -24,42 +24,14 @@ public class ExportService {
   private final SmokeTrackerRepo smokeTrackerRepo;
 
 
-  public InputStreamResource getInputStreamResource() {
-    return new InputStreamResource(new ByteArrayInputStream(allSmokeEntrysAsCSVString().getBytes()));
-  }
-
-  private Writer getCSVFile() {
-    Writer fileWriter = getFileWriter();
-    CSVPrinter csvPrinter = getCsvPrinter(fileWriter).orElseThrow();
-    tryPrintingTo(allSmokeEntrysAsCSVString(), csvPrinter);
-    return fileWriter;
-  }
-
-  private void tryPrintingTo(String smokeRecords, CSVPrinter csvPrinter) {
-    try {
-      csvPrinter.printRecords(smokeRecords);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-  }
-
-  private Optional<CSVPrinter> getCsvPrinter(Writer fileWriter) {
-    try {
-      final CSVPrinter csvPrinter = new CSVPrinter(fileWriter, CSVFormat.EXCEL);
-      return Optional.of(csvPrinter);
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return Optional.empty();
-  }
-
-  private Writer getFileWriter() {
-    try {
-      return new FileWriter("smoke.csv");
-    } catch (IOException e) {
-      e.printStackTrace();
-    }
-    return FileWriter.nullWriter();
+  /**
+   * Konveriert die Einträge aus dem Smoke Entry repo in einen joined csv string mit new Line
+   * und gibt diesen als {@link InputStreamResource} zurück.
+   * @return CSV String als {@link InputStreamResource}.
+   */
+  public InputStreamResource smokeEntrysToCSVasISR() {
+    return new InputStreamResource(
+        new ByteArrayInputStream(allSmokeEntrysAsCSVString().getBytes()));
   }
 
 
