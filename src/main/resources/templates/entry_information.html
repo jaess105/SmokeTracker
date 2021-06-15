@@ -9,12 +9,15 @@
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
         crossorigin="anonymous">
   <script>
-    window.setTimeout(function(){
-      window.location.href='/';
+    window.setTimeout(function () {
+      window.location.href = '/';
     }, 4000);
   </script>
 </head>
 <body>
-  <p th:object="${smoke_entry}">Es wurde ein Eintrag für <span th:text="*{#temporals.format(getZeitstempel(),'dd-MM-yyyy HH:mm')}"></span> gemacht.</p>
+<div class="container-fluid">
+  <p class="lead" th:object="${smoke_entry}">Es wurde ein Eintrag für <span
+      th:text="*{#temporals.format(getZeitstempel(),'dd-MM-yyyy HH:mm')}"></span> gemacht.</p>
+</div>
 </body>
 </html>

@@ -1,6 +1,7 @@
 package de.jaess105.SmokeTracker.model;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,11 +24,11 @@ public class SmokeEntry {
     this.zeitstempel = zeitstempel;
   }
 
-  public static SmokeEntry makeEntryNow(){
-    return new SmokeEntry(LocalDateTime.now());
+  public static SmokeEntry makeEntryNow() {
+    return new SmokeEntry(LocalDateTime.now().atZone(ZoneId.of("Europe/Berlin")).toLocalDateTime());
   }
 
-  public String toCSVLine(){
-    return String.format("%s,%s",id,zeitstempel);
+  public String toCSVLine() {
+    return String.format("%s,%s", id, zeitstempel);
   }
 }
