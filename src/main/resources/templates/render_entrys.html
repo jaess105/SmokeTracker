@@ -3,14 +3,23 @@
 
 <head>
   <meta charset="UTF-8">
-  <titl>Alle Einträge</titl>
+  <title>Alle Einträge</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
         rel="stylesheet"
         integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
         crossorigin="anonymous">
 </head>
 <body>
-  <table class="table">
+<div class="container-fluid">
+  <a href="/" class="btn btn-primary btn-lg active" role="button"
+     aria-pressed="true">home</a>
+  </div>
+<div>
+  <p></p>
+</div>
+<div class="container-fluid ">
+
+  <table class="table table-dark  ">
     <thead>
     <tr>
       <th>Nummer</th>
@@ -18,11 +27,12 @@
     </tr>
     </thead>
     <tbody th:each="entry:${entry_list}">
-      <tr th:object="${entry}">
-        <td th:text="*{getId()}">1</td>
-        <td th:text="*{#temporals.format(getZeitstempel(),'dd-MM-yyyy HH:mm')}">dd-MM-yyyy HH:mm</td>
-      </tr>
+    <tr th:object="${entry}">
+      <td th:text="*{getId()}">1</td>
+      <td th:text="*{#temporals.format(getZeitstempel(),'dd-MM-yyyy HH:mm')}">dd-MM-yyyy HH:mm</td>
+    </tr>
     </tbody>
   </table>
+</div>
 </body>
 </html>
