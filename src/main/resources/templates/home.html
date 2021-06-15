@@ -10,8 +10,23 @@
         crossorigin="anonymous">
 </head>
 <body>
-<form action="smoke" method="post">
-  <input type="submit" name="Neuen Eintrag anlegen" value="Smoke" />
-</form>
+
+<div class="btn-group-toggle container" data-toggle="buttons">
+  <form action="smoke" method="post">
+    <div class="form-group">
+      <label class="btn btn-secondary active">
+        <input class="btn btn-secondary active" type="submit" name="Neuen Eintrag anlegen"
+               value="Smoke"/>
+      </label>
+      <a href="/show-entrys" class="btn btn-primary btn-lg active" role="button"
+         aria-pressed="true">Alle
+        Einträge anzeigen</a>
+      <a href="/download-csv" class="btn btn-primary btn-lg active" role="button"
+         aria-pressed="true">Als
+        CSV runterladen</a>
+    </div>
+
+  </form>
+</div>
 </body>
 </html>
