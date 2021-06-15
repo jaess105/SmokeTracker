@@ -20,8 +20,10 @@ public class SmokeEntry {
     this.zeitstempel = zeitstempel;
   }
 
+
   public static SmokeEntry makeEntryNow() {
-    return new SmokeEntry(LocalDateTime.now().atZone(ZoneId.of("Europe/Berlin")).toLocalDateTime());
+    // Der pi läuft 2 Stunden nach. Ist zwar hacky, aber besser als die Datenbank um zu schreiben...
+    return new SmokeEntry(LocalDateTime.now().plusHours(2));
   }
 
   public String toCSVLine() {
