@@ -2,4 +2,6 @@
 :toc:
 
 == Beschreibung
-Mein Bruder muss für ein Projekt tracken, wie häufig wir auf den Balcon gehen und ich hatte den Vormittag frei...
+Mein Bruder muss für ein Projekt die Luft draußen messen und muss daher tracken, wie häufig wir raus gehen,
+damit das nicht seine Daten verfälscht.
+Er muss das später plotten und damit er das nicht machen muss, habe ich eine Anwendung gebastelt, die die daten sammelt und dann am Ende downloadbar ist, als csv Datei.
