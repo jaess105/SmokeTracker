@@ -5,20 +5,23 @@ import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 @Data
-@RequiredArgsConstructor(access = AccessLevel.PRIVATE)
-@AllArgsConstructor(access = AccessLevel.PACKAGE)
-@Getter
-@Setter
+@AllArgsConstructor()
+@NoArgsConstructor
 public class SmokeEntry {
 
   @Id
   private Long id;
-  private final LocalDateTime zeitstempel;
+  private LocalDateTime zeitstempel;
+
+  private SmokeEntry(LocalDateTime zeitstempel) {
+    this.zeitstempel = zeitstempel;
+  }
 
   public static SmokeEntry makeEntryNow(){
     return new SmokeEntry(LocalDateTime.now());

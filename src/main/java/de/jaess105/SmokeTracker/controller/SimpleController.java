@@ -3,14 +3,11 @@ package de.jaess105.SmokeTracker.controller;
 import de.jaess105.SmokeTracker.model.SmokeEntry;
 import de.jaess105.SmokeTracker.service.ExportService;
 import de.jaess105.SmokeTracker.service.SmokeEntryService;
-import java.io.InputStream;
-import javax.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.servlet.view.RedirectView;
 
 @Controller
 @RequiredArgsConstructor
@@ -37,10 +34,16 @@ public class SimpleController {
     return "entry_information";
   }
 
-  @GetMapping("/toCSV")
+  /*@GetMapping("/toCSV")
   public RedirectView downloadCSV(HttpServletResponse respnse){
     try {
-      InputStream io = ;
-    }
+      
+      InputStream io = exportService.getCSV().get().;
+    }*/
+
+  @GetMapping("/showEntrys")
+  public String showEntrys(Model model){
+    model.addAttribute("entry_list", smokeEntryService.getSmokeEntrys());
+    return "render_entrys";
   }
 }
