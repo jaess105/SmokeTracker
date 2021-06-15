@@ -2,13 +2,9 @@ package de.jaess105.SmokeTracker.model;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
-import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.data.annotation.Id;
 
 @Data

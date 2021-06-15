@@ -3,17 +3,9 @@ package de.jaess105.SmokeTracker.service;
 import de.jaess105.SmokeTracker.model.SmokeEntry;
 import de.jaess105.SmokeTracker.repository.SmokeTrackerRepo;
 import java.io.ByteArrayInputStream;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.Writer;
 import java.util.Collection;
-import java.util.Optional;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVPrinter;
 import org.springframework.core.io.InputStreamResource;
 import org.springframework.stereotype.Service;
 
@@ -25,8 +17,9 @@ public class ExportService {
 
 
   /**
-   * Konveriert die Einträge aus dem Smoke Entry repo in einen joined csv string mit new Line
-   * und gibt diesen als {@link InputStreamResource} zurück.
+   * Konveriert die Einträge aus dem Smoke Entry repo in einen joined csv string mit new Line und
+   * gibt diesen als {@link InputStreamResource} zurück.
+   *
    * @return CSV String als {@link InputStreamResource}.
    */
   public InputStreamResource smokeEntrysToCSVasISR() {
