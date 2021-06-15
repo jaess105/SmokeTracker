@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta charset="UTF-8">
+  <titl>Alle Einträge</titl>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+        crossorigin="anonymous">
+</head>
+<body>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Nummer</th>
+      <th>Zeit</th>
+    </tr>
+    </thead>
+    <tbody th:each="entry:${entry_list}">
+      <tr th:object="${entry}">
+        <td th:text="*{getId()}">1</td>
+        <td th:text="*{#temporals.format(getZeitstempel(),'dd-MM-yyyy HH:mm')}">dd-MM-yyyy HH:mm</td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
